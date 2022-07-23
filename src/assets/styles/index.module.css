@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900&family=Righteous&display=swap");
+
+* {
+  font-family: "Recursive";
+  --primary-color: #fb6b6b;
+  --white-color: #ffffff;
+  --red-color: #d70900;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.containerApp {
+  background-color: var(--primary-color);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.marginTop42 {
+  margin-top: 42px;
+}
