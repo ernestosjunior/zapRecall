@@ -1,0 +1,34 @@
+.endStatus {
+  text-align: center;
+}
+.statusBarContainer {
+  height: auto;
+  min-height: 118px;
+  width: 100%;
+  background-color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 24px;
+}
+
+.iconsContainer {
+  display: flex;
+  gap: 5px;
+}
+.restartButton {
+  all: unset;
+  cursor: pointer;
+  width: 167px;
+  height: 32px;
+  background: #fb6b6b;
+  border-radius: 5px;
+  margin-top: 23px;
+  color: #ffffff;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}

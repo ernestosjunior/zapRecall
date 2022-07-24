@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Dispatch, SetStateAction } from "react";
 import styles from "./Question.module.css";
 import arrow from "../../assets/arrow_right.svg";
 import rotate from ".././../assets/rotate.svg";
@@ -10,9 +10,17 @@ interface QuestionProps {
   id: number;
   question: string;
   response: string;
+  setCompleted: Dispatch<SetStateAction<number>>;
+  setIcons: Dispatch<SetStateAction<string[]>>;
 }
 
-const Question: React.FC<QuestionProps> = ({ id, question, response }) => {
+const Question: React.FC<QuestionProps> = ({
+  id,
+  question,
+  response,
+  setCompleted,
+  setIcons,
+}) => {
   const [stage, setStage] = useState("");
   const [color, setColor] = useState("");
 
@@ -30,6 +38,13 @@ const Question: React.FC<QuestionProps> = ({ id, question, response }) => {
     );
   }
 
+  const handleSelect = (color: string) => {
+    setColor(color);
+    setIcons((prev) => [...prev, color]);
+    setStage("");
+    setCompleted((prev) => prev + 1);
+  };
+
   if (stage === "response") {
     return (
       <div className={styles.containerQ}>
@@ -37,28 +52,19 @@ const Question: React.FC<QuestionProps> = ({ id, question, response }) => {
         <section className={styles.buttonsOptions}>
           <button
             className={styles.buttonsResRed}
-            onClick={() => {
-              setColor("#FF3030");
-              setStage("");
-            }}
+            onClick={() => handleSelect("#FF3030")}
           >
             Não lembrei
           </button>
           <button
             className={styles.buttonsResOrange}
-            onClick={() => {
-              setColor("#FF922E");
-              setStage("");
-            }}
+            onClick={() => handleSelect("#FF922E")}
           >
             Quase não lembrei
           </button>
           <button
             className={styles.buttonsResGreen}
-            onClick={() => {
-              setColor("#2FBE34");
-              setStage("");
-            }}
+            onClick={() => handleSelect("#2FBE34")}
           >
             Zap!
           </button>
