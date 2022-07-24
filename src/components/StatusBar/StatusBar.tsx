@@ -8,16 +8,16 @@ interface StatusBarProps {
   total: number;
   completed: number;
   icons: string[];
-  setInit: Dispatch<SetStateAction<boolean>>;
   handleRestart: () => void;
+  goal: string;
 }
 
 const StatusBar: React.FC<StatusBarProps> = ({
   total = 0,
   completed = 0,
   icons = [],
-  setInit,
   handleRestart,
+  goal,
 }) => {
   const renderIcon = (color: string) => {
     if (color === "#FF3030") return <img src={uncheckIcon} alt="" />;
@@ -26,12 +26,11 @@ const StatusBar: React.FC<StatusBarProps> = ({
 
     return null;
   };
+  const correctArr = icons.filter((icon) => icon === "#2FBE34");
   const isCompleted = total === completed;
-  const hasUncheck = icons.includes("#FF3030");
-
-  const titleEnd = !hasUncheck ? "🥳 Parabéns!" : "😢 Putz...";
-
-  const subtitleEnd = !hasUncheck
+  const isSuccess = isCompleted && correctArr.length >= Number(goal);
+  const titleEnd = isSuccess ? "🥳 Parabéns!" : "😢 Putz...";
+  const subtitleEnd = isSuccess
     ? "Você não esqueceu de nenhum flashcard!"
     : "Ainda faltam alguns... Mas não desanime!";
 

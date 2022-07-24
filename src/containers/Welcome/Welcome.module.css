@@ -1,3 +1,12 @@
+.goalsInput {
+  all: unset;
+  width: 246px;
+  height: 43px;
+  background: #ffffff;
+  border-radius: 5px;
+  padding-left: 8px;
+}
+
 .startButton {
   all: unset;
   cursor: pointer;
@@ -12,4 +21,11 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+  padding: 0 4px;
+}
+
+.startButton:disabled {
+  background: #e8e8e8;
+  color: #c0c0c0;
+  border: 1px solid transparent;
 }

@@ -9,17 +9,19 @@ function App() {
   const [init, setInit] = useState(true);
   const [completed, setCompleted] = useState(0);
   const [icons, setIcons] = useState([]);
+  const [goal, setGoal] = useState("");
 
   const handleRestart = () => {
     setInit(true);
     setCompleted(0);
     setIcons([]);
+    setGoal("");
   };
 
   return (
     <main className={styles.containerApp}>
       {init ? (
-        <Welcome setInit={setInit} />
+        <Welcome setInit={setInit} onChange={setGoal} goal={goal} />
       ) : (
         <>
           {" "}
@@ -29,8 +31,8 @@ function App() {
             total={deck.length}
             completed={completed}
             icons={icons}
-            setInit={setInit}
             handleRestart={handleRestart}
+            goal={goal}
           />
         </>
       )}
