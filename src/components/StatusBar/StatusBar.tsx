@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { useEffect } from "react";
 import styles from "./StatusBar.module.css";
 import checkIcon from ".././../assets/check.svg";
 import uncheckIcon from ".././../assets/uncheck.svg";

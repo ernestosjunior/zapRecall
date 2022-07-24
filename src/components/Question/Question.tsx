@@ -81,9 +81,10 @@ const Question: React.FC<QuestionProps> = ({
   };
 
   return (
-    <div
+    <button
       className={styles.questionContainer}
       onClick={() => setStage("question")}
+      disabled={!!color}
     >
       <div className={styles.questionLeft}>
         <p className={styles.textQuestion} {...props}>
@@ -94,7 +95,7 @@ const Question: React.FC<QuestionProps> = ({
       {color === "#FF3030" && <img src={uncheckIcon} alt="" />}
       {color === "#FF922E" && <img src={questionIcon} alt="" />}
       {color === "#2FBE34" && <img src={checkIcon} alt="" />}
-    </div>
+    </button>
   );
 };
 
