@@ -27,8 +27,10 @@ const StatusBar: React.FC<StatusBarProps> = ({
     return null;
   };
   const correctArr = icons.filter((icon) => icon === "#2FBE34");
+  const hasIncorrect = icons.some((icon) => icon === "#FF3030");
   const isCompleted = total === completed;
-  const isSuccess = isCompleted && correctArr.length >= Number(goal);
+  const isSuccess =
+    isCompleted && !hasIncorrect && correctArr.length >= Number(goal);
   const titleEnd = isSuccess ? "🥳 Parabéns!" : "😢 Putz...";
   const subtitleEnd = isSuccess
     ? "Você não esqueceu de nenhum flashcard!"
