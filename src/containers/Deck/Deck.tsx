@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { Question } from "../../components";
+import { shuffle } from "lodash";
 
 interface DeckProps {
   deck: { Q: string; R: string }[];
@@ -8,9 +9,10 @@ interface DeckProps {
 }
 
 const Deck: React.FC<DeckProps> = ({ deck = [], setCompleted, setIcons }) => {
+  const shuffledDeck = shuffle(deck);
   return (
     <>
-      {deck.map((deck, index) => (
+      {shuffledDeck.map((deck, index) => (
         <Question
           id={index}
           question={deck.Q}
