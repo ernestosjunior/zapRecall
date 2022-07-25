@@ -18,13 +18,16 @@ function App() {
     setGoal("");
   };
 
+  const isFinished = completed >= 8;
+  const marginBottom = isFinished ? "40vh" : "26vh";
+
   return (
     <main className={styles.containerApp}>
       {init ? (
         <Welcome setInit={setInit} onChange={setGoal} goal={goal} />
       ) : (
         <>
-          <div className={styles.containerApp} style={{ marginBottom: "26vh" }}>
+          <div className={styles.containerApp} style={{ marginBottom }}>
             <img src={logo} className={styles.marginTop42} />
             <Deck deck={deck} setCompleted={setCompleted} setIcons={setIcons} />
           </div>
