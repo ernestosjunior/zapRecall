@@ -24,9 +24,10 @@ function App() {
         <Welcome setInit={setInit} onChange={setGoal} goal={goal} />
       ) : (
         <>
-          {" "}
-          <img src={logo} className={styles.marginTop42} />
-          <Deck deck={deck} setCompleted={setCompleted} setIcons={setIcons} />
+          <div className={styles.containerApp} style={{ marginBottom: "26vh" }}>
+            <img src={logo} className={styles.marginTop42} />
+            <Deck deck={deck} setCompleted={setCompleted} setIcons={setIcons} />
+          </div>
           <StatusBar
             total={deck.length}
             completed={completed}
